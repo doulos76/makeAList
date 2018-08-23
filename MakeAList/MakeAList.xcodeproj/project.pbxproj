@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		55037B90212E8F2B00E98033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55037B8F212E8F2B00E98033 /* AppDelegate.swift */; };
-		55037B92212E8F2B00E98033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55037B91212E8F2B00E98033 /* ViewController.swift */; };
+		55037B92212E8F2B00E98033 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55037B91212E8F2B00E98033 /* ListViewController.swift */; };
 		55037B95212E8F2B00E98033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55037B93212E8F2B00E98033 /* Main.storyboard */; };
 		55037B97212E8F2D00E98033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55037B96212E8F2D00E98033 /* Assets.xcassets */; };
 		55037B9A212E8F2D00E98033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55037B98212E8F2D00E98033 /* LaunchScreen.storyboard */; };
+		55037BA5212E939B00E98033 /* ToDoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55037BA4212E939B00E98033 /* ToDoItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55037B8C212E8F2B00E98033 /* MakeAList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeAList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55037B8F212E8F2B00E98033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55037B91212E8F2B00E98033 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55037B91212E8F2B00E98033 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		55037B94212E8F2B00E98033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55037B96212E8F2D00E98033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55037B99212E8F2D00E98033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55037B9B212E8F2D00E98033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55037BA4212E939B00E98033 /* ToDoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,38 @@
 			isa = PBXGroup;
 			children = (
 				55037B8F212E8F2B00E98033 /* AppDelegate.swift */,
-				55037B91212E8F2B00E98033 /* ViewController.swift */,
 				55037B93212E8F2B00E98033 /* Main.storyboard */,
+				55037BA3212E913400E98033 /* Model */,
+				55037BA2212E912D00E98033 /* Views */,
+				55037BA1212E911C00E98033 /* Controllers */,
 				55037B96212E8F2D00E98033 /* Assets.xcassets */,
 				55037B98212E8F2D00E98033 /* LaunchScreen.storyboard */,
 				55037B9B212E8F2D00E98033 /* Info.plist */,
+				55037BA4212E939B00E98033 /* ToDoItemCell.swift */,
 			);
 			path = MakeAList;
+			sourceTree = "<group>";
+		};
+		55037BA1212E911C00E98033 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				55037B91212E8F2B00E98033 /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		55037BA2212E912D00E98033 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55037BA3212E913400E98033 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55037B92212E8F2B00E98033 /* ViewController.swift in Sources */,
+				55037BA5212E939B00E98033 /* ToDoItemCell.swift in Sources */,
+				55037B92212E8F2B00E98033 /* ListViewController.swift in Sources */,
 				55037B90212E8F2B00E98033 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
