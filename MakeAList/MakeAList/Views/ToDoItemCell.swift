@@ -16,7 +16,7 @@ class ToDoItemCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    backgroundColor = UIColor(red: 121/255, green: 193/255, blue: 175/255, alpha: 1)
+//    backgroundColor = UIColor(red: 121/255, green: 193/255, blue: 175/255, alpha: 1)
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {

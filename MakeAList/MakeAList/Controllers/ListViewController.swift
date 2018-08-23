@@ -68,7 +68,17 @@ class ListViewController: UITableViewController {
     // Do any additional setup after loading the view, typically from a nib.
 //    todolistTableView.dataSource = self
 //    todolistTableView.delegate = self
-    view.backgroundColor = UIColor(red: 121/255, green: 193/255, blue: 175/255, alpha: 1)
+//    view.backgroundColor = UIColor(red: 121/255, green: 193/255, blue: 175/255, alpha: 1)
+    navigationItem.title = "To Do List"
+    navigationItem.largeTitleDisplayMode = .always
+    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.backgroundColor = .white
+    navigationController?.navigationBar.isTranslucent = false
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
   }
   
   override func didReceiveMemoryWarning() {
