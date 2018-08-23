@@ -8,39 +8,107 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-
+class ListViewController: UITableViewController {
+  
   @IBOutlet weak var todolistTableView: UITableView!
   
+  var toDoItems: [ToDoItemData]
+  
+  required init?(coder aDecoder: NSCoder) {
+    toDoItems = [ToDoItemData]()
+    
+    let row0Item = ToDoItemData()
+//    row0Item.title = dummyString[0]
+    row0Item.isChecked = true
+    toDoItems.append(row0Item)
+    
+    let row1Item = ToDoItemData()
+//    row1Item.title = dummyString[1]
+    row1Item.isChecked = true
+    toDoItems.append(row1Item)
+
+    let row2Item = ToDoItemData()
+//    row2Item.title = dummyString[2]
+    row2Item.isChecked = false
+    toDoItems.append(row2Item)
+
+    let row3Item = ToDoItemData()
+//    row3Item.title = dummyString[3]
+    row3Item.isChecked = true
+    toDoItems.append(row3Item)
+
+    let row4Item = ToDoItemData()
+//    row4Item.title = dummyString[4]
+    row4Item.isChecked = false
+    toDoItems.append(row4Item)
+
+    let row5Item = ToDoItemData()
+//    row5Item.title = dummyString[5]
+    row5Item.isChecked = true
+    toDoItems.append(row5Item)
+
+    let row6Item = ToDoItemData()
+//    row6Item.title = dummyString[6]
+    row6Item.isChecked = false
+    toDoItems.append(row6Item)
+
+    super.init(coder: aDecoder)
+  }
+  
   let dummyString: [String] = ["play the guitar",
-                             "study the swift",
-                             "drive the car",
-                             "music listen",
-                             "play the piano",
-                             "game development",
-                             "swimming"]
+                               "study the swift",
+                               "drive the car",
+                               "music listen",
+                               "play the piano",
+                               "game development",
+                               "swimming"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    todolistTableView.dataSource = self
-    todolistTableView.delegate = self
+//    todolistTableView.dataSource = self
+//    todolistTableView.delegate = self
+    view.backgroundColor = UIColor(red: 121/255, green: 193/255, blue: 175/255, alpha: 1)
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  // MARK:- private methods
+  func configureCheckmark(for cell: ToDoItemCell, with item: ToDoItemData) {
+    if item.isChecked {
+      cell.checkImageView?.image = UIImage(named: "checkedIcon.png")
+    } else {
+      cell.checkImageView?.image = UIImage(named: "uncheckedIcon.png")
+    }
+  }
+  
+  func configureText(for cell: ToDoItemCell, with indexPath: IndexPath) {
+    cell.todoItemLabel.text = dummyString[indexPath.row]
+  }
+  
 }
 
-extension ListViewController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK:- UITableViewDataSource
+extension ListViewController {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return dummyString.count
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    cell.textLabel?.text = dummyString[indexPath.row]
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath) as! ToDoItemCell
+    configureText(for: cell, with: indexPath)
+    let item = toDoItems[indexPath.row]
+    configureCheckmark(for: cell, with: item)
     return cell
+  }
+}
+
+// MARK:- UITableViewDelegate
+extension ListViewController {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
