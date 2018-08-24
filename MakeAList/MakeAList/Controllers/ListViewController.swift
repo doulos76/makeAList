@@ -19,37 +19,37 @@ class ListViewController: UITableViewController {
     
     let row0Item = ToDoItemData()
 //    row0Item.title = dummyString[0]
-    row0Item.isChecked = true
+//    row0Item.isChecked = true
     toDoItems.append(row0Item)
     
     let row1Item = ToDoItemData()
 //    row1Item.title = dummyString[1]
-    row1Item.isChecked = true
+//    row1Item.isChecked = true
     toDoItems.append(row1Item)
 
     let row2Item = ToDoItemData()
 //    row2Item.title = dummyString[2]
-    row2Item.isChecked = false
+//    row2Item.isChecked = false
     toDoItems.append(row2Item)
 
     let row3Item = ToDoItemData()
 //    row3Item.title = dummyString[3]
-    row3Item.isChecked = true
+//    row3Item.isChecked = true
     toDoItems.append(row3Item)
 
     let row4Item = ToDoItemData()
 //    row4Item.title = dummyString[4]
-    row4Item.isChecked = false
+//    row4Item.isChecked = false
     toDoItems.append(row4Item)
 
     let row5Item = ToDoItemData()
 //    row5Item.title = dummyString[5]
-    row5Item.isChecked = true
+//    row5Item.isChecked = true
     toDoItems.append(row5Item)
 
     let row6Item = ToDoItemData()
 //    row6Item.title = dummyString[6]
-    row6Item.isChecked = false
+//    row6Item.isChecked = false
     toDoItems.append(row6Item)
 
     super.init(coder: aDecoder)
@@ -75,6 +75,10 @@ class ListViewController: UITableViewController {
     navigationController?.navigationBar.backgroundColor = .white
     navigationController?.navigationBar.isTranslucent = false
     
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -119,6 +123,20 @@ extension ListViewController {
 // MARK:- UITableViewDelegate
 extension ListViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = ToDoItemCell()
+    let item = ToDoItemData()
+    if let cell = tableView.cellForRow(at: indexPath) {
+      if cell.accessoryType == .none {
+        cell.accessoryType = .checkmark
+        item.isChecked = true
+      } else {
+        cell.accessoryType = .none
+        item.isChecked = false
+      }
+    }
+    configureCheckmark(for: cell, with: item)
+    view.layoutIfNeeded()
+//    cell.checkImageView?.image = UIImage(named: "checkedIcon.png")
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }
