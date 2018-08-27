@@ -75,6 +75,7 @@ class ListViewController: UITableViewController {
     navigationController?.navigationBar.backgroundColor = .white
     navigationController?.navigationBar.isTranslucent = false
     
+    todolistTableView.isEditing = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -139,4 +140,20 @@ extension ListViewController {
 //    cell.checkImageView?.image = UIImage(named: "checkedIcon.png")
     tableView.deselectRow(at: indexPath, animated: true)
   }
+  
+  override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    return .none
+  }
+  
+  override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    return false
+  }
+  
+  override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    let moveObject = toDoItems[sourceIndexPath.row]
+    toDoItems.remove(at: sourceIndexPath.row)
+    toDoItems.insert(moveObject, at: destinationIndexPath.row)
+  }
+  
+  
 }

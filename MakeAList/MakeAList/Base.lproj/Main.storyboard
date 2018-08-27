@@ -62,6 +62,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="lXa-Ff-KZj"/>
+                    <connections>
+                        <outlet property="todolistTableView" destination="z7n-J8-dHx" id="0OT-60-dnz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDl-MF-0z1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
